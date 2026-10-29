@@ -36,6 +36,10 @@ export const dynamic = "force-dynamic";
  * Parte das mesmas obras do painel, com os mesmos filtros, para a soma daqui
  * bater com o número do quadro que trouxe o usuário até aqui.
  *
+ * Cada linha mostra a observação da medição — pedido da Fernanda em
+ * 27/10/2026, *"o porque de estarem pendentes"*. É o mesmo campo do
+ * formulário da medição; editar continua sendo lá.
+ *
  * As medições em rascunho vêm num bloco abaixo, com total próprio — pedido de
  * 09/10/2026, *"para não somar com o total das que já estão aprovadas"*.
  */
@@ -104,7 +108,9 @@ function TabelaDeMedicoes({
   podeEditar: boolean;
 }) {
   return (
-    <Tabela colunas={["Obra", "Medição", "Competência", "Situação", "Valor"]}>
+    <Tabela
+      colunas={["Obra", "Medição", "Competência", "Situação", "Observação", "Valor"]}
+    >
       {linhas.map((l) => (
         <Linha key={l.medicaoId}>
           <Celula>
@@ -133,6 +139,11 @@ function TabelaDeMedicoes({
           <Celula apagada>{formatarCompetencia(l.competencia)}</Celula>
           <Celula>
             <BadgeMedicao status={l.status} />
+          </Celula>
+          <Celula apagada>
+            <span className="block min-w-48 max-w-80 whitespace-pre-line">
+              {l.observacao ?? "—"}
+            </span>
           </Celula>
           <Celula tabular>
             <span className="whitespace-nowrap">{formatarBRL(l.valor)}</span>

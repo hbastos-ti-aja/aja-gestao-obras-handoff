@@ -1618,6 +1618,14 @@ Pedidos da Fernanda ao lançar as obras reais na homologação.
     que continua sendo usado na rerratificação. Ela é cobrada e aceita um
     arquivo só: a planilha de aditivo vai na rerratificação.
 
+17. ✅ **Pedido de 27/10/2026.** Da Fernanda: mostrar na lista de pagamentos
+    pendentes a observação de cada medição, *"o porque de estarem
+    pendentes"*.
+
+    A lista ganhou a coluna **Observação**, nos dois blocos (pendentes e
+    rascunhos). É o campo "Observações da medição" do formulário: editar
+    continua sendo na medição. Observação em branco aparece como "—".
+
 ## Etapa 14 — Empacotamento e instalação on-premise ⬜
 
 **Fora das 140h contratadas.** Plano completo, com o desenho físico e o

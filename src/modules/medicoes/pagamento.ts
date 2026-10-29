@@ -90,6 +90,7 @@ export type ObraComMedicoes = {
     competencia: Date;
     status: StatusMedicao;
     valorMedido: Decimal | string | number;
+    observacoes?: string | null;
   }>;
 };
 
@@ -102,6 +103,11 @@ export type LinhaPagamentoPendente = {
   competencia: Date;
   status: StatusMedicao;
   valor: Decimal;
+  /**
+   * A observação da medição, para ler na lista o porquê da pendência — pedido
+   * da Fernanda em 27/10/2026. Texto em branco vira `null`.
+   */
+  observacao: string | null;
 };
 
 /**
@@ -148,6 +154,7 @@ function linhasDasObras(
         competencia: m.competencia,
         status: m.status,
         valor: dec(m.valorMedido),
+        observacao: m.observacoes?.trim() || null,
       })),
   );
 }
