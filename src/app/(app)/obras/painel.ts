@@ -53,6 +53,7 @@ export async function carregarObrasDoPainel(filtros: Filtros, agora: Date) {
           valorMedido: true,
           competencia: true,
           dataMedicao: true,
+          observacoes: true,
         },
       },
     },

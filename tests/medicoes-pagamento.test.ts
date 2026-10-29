@@ -70,9 +70,9 @@ describe("pagamentos pendentes do painel", () => {
       objeto: "Contenção Paiol",
       numeroContrato: "001/2026",
       medicoes: [
-        { id: "a8", numero: 8, competencia, status: StatusMedicao.APROVADA, valorMedido: "730778.06" },
+        { id: "a8", numero: 8, competencia, status: StatusMedicao.APROVADA, valorMedido: "730778.06", observacoes: " Aguardando empenho \n" },
         { id: "a7", numero: 7, competencia, status: StatusMedicao.PAGA, valorMedido: "1267794.67" },
-        { id: "a9", numero: 9, competencia, status: StatusMedicao.PROTOCOLADA, valorMedido: "100.00" },
+        { id: "a9", numero: 9, competencia, status: StatusMedicao.PROTOCOLADA, valorMedido: "100.00", observacoes: "   " },
         { id: "a10", numero: 10, competencia, status: StatusMedicao.RASCUNHO, valorMedido: "50000.00" },
       ],
     },
@@ -93,6 +93,14 @@ describe("pagamentos pendentes do painel", () => {
     assert.deepEqual(
       linhas.map((l) => l.medicaoId),
       ["a8", "a9", "b2"],
+    );
+  });
+
+  it("traz a observação da medição, e observação em branco vira nula", () => {
+    const linhas = pagamentosPendentes(obras);
+    assert.deepEqual(
+      linhas.map((l) => l.observacao),
+      ["Aguardando empenho", null, null],
     );
   });
 
